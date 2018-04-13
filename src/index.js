@@ -8,7 +8,7 @@ import {createStore} from "redux";
 import index from "./reducers";
 import injectTapEventPlugin from 'react-tap-event-plugin';  
 
-
+import 'font-awesome/css/font-awesome.min.css';
 
 injectTapEventPlugin();
 var store=createStore(index);

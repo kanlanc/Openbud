@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { SearchTerm } from "../actions/index";
-import RaisedButton from "material-ui/RaisedButton";
+import Button from 'material-ui/Button';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -10,11 +11,13 @@ class SearchBar extends Component {
       terms: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLucky = this.handleLucky.bind(this);
   }
   handleSubmit(e) {
     e.preventDefault();
     this.props.SearchTerm(this.state.terms);
     this.setState({ terms: "" });
+    this.props.history.push("/projects");
   }
   handleLucky(e) {
     e.preventDefault();
@@ -22,8 +25,8 @@ class SearchBar extends Component {
   }
   render() {
     const style = {
-      marginTop: "2vh",
-      width:"30vh"
+      marginTop: "4vh",
+      width:"35vh"
     };
     return (
       <div>
@@ -38,8 +41,9 @@ class SearchBar extends Component {
             style={{width:"90vh",height:"5vh",padding:"1vh",fontSize:"3vh"}}
           />
           <br/>
-          <RaisedButton label="Search" type="submit" primary={true} style={{...style,marginLeft:"14vh"}} />
-          <RaisedButton label="Feeling Lucky?" onClick={this.handleLucky} secondary={true} style={{...style,marginLeft:"1vh"}}/>
+          <Button variant="raised" label="Search" type="submit" color="primary" style={{...style,marginLeft:"10vh"}} >Search</Button>
+          <Button variant="raised" label="Feeling Lucky?" onClick={this.handleLucky} type="submit" color="secondary" style={{...style,marginLeft:"4vh"}} >Feeling Lucky?</Button>
+      
         </form>
       </div>
     );
@@ -59,4 +63,4 @@ const MapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, MapDispatchToProps)(SearchBar);
+export default withRouter(connect(mapStateToProps, MapDispatchToProps)(SearchBar));

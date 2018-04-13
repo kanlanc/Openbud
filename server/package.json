@@ -1,0 +1,23 @@
+{
+  "name": "openbud-backend",
+  "version": "1.0.0",
+  "description": "backend for openbud",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
+    "express": "~4.15.5",
+    "jsonwebtoken": "^8.2.0",
+    "mongoose": "^5.0.9",
+    "morgan": "~1.9.0",
+    "path": "^0.12.7",
+    "serve-favicon": "~2.4.5"
+  },
+  "author": "Vikranth Kanumuru",
+  "license": "ISC"
+}
