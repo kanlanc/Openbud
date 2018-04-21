@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import SearchBar from "./SeachBar";
 import "../App.css";
 
+
+
 class Home extends Component {
   render() {
     const style = {

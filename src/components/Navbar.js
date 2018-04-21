@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { SearchTerm } from "../actions/index";
-import { withStyles } from 'material-ui/styles';
-import Paper from 'material-ui/Paper';
-import Grid from 'material-ui/Grid';
-
 import Button from 'material-ui/Button';
 
 import "../CSS/Navbar.css"

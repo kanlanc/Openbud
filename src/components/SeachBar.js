@@ -38,10 +38,10 @@ class SearchBar extends Component {
             onChange={e => {
               this.setState({ [e.target.name]: e.target.value });
             }}
-            style={{width:"90vh",height:"5vh",padding:"1vh",fontSize:"3vh"}}
+            style={{width:"90vh",height:"5vh",padding:"1vh",fontSize:"3vh",marginLeft:"2vh"}}
           />
           <br/>
-          <Button variant="raised" label="Search" type="submit" color="primary" style={{...style,marginLeft:"10vh"}} >Search</Button>
+          <Button variant="raised" label="Search" type="submit" color="primary" style={{...style,marginLeft:"8vh"}} >Search</Button>
           <Button variant="raised" label="Feeling Lucky?" onClick={this.handleLucky} type="submit" color="secondary" style={{...style,marginLeft:"4vh"}} >Feeling Lucky?</Button>
       
         </form>
