@@ -5,6 +5,7 @@ import Button from "material-ui/Button";
 import Grid from "material-ui/Grid";
 import Typography from "material-ui/Typography";
 import "../CSS/bootstrap.css";
+import HorizontalGridList from  "./GridList";
 
 /**
  * TODO:
@@ -32,7 +33,7 @@ const styles = {
     alignContent: "space-between",
     justifyContent: "space-between",
     width: "55vh",
-    height:"70vh"
+    height:"50vh"
   },
 
   makeitflex:{
@@ -48,7 +49,7 @@ const styles = {
     maxHeight:"5vh"
   },
   paragraph: {
-    fontSize: 20,
+    fontSize: "100%",
     maxHeight:"5vh"
   },
   size: {
@@ -92,19 +93,18 @@ function SimpleCard(props) {
 class Bookmarkedrepos extends Component {
   render() {
     return (
-      <div className="container">
-        <Typography variant="headline" component="h2">
+      <div className="container" style={{margin:"5%"}}>
+        <Typography variant="display1" component="h2">
           Recommended Projects
         </Typography>
         <br />
         <Grid container spacing={12}>
           <SimpleCard classes={this.props.classes} projectName="Material UI" description="This is the description for sample 1" />
           <SimpleCard classes={this.props.classes} projectName="OpenBud" description="This is the description for sample 2"/>
-          <SimpleCard classes={this.props.classes} projectName="Project 3" description="This is the description for sample 3"/>
-          <SimpleCard classes={this.props.classes} projectName="Project 4" description="This is the description for sample 4"/>
-          <SimpleCard classes={this.props.classes} projectName="Project 5" description="This is the sample for the project 5  "/>
-          
+          <SimpleCard classes={this.props.classes} projectName="React" description="This is the description for sample 3"/>
+
         </Grid>
+        <HorizontalGridList/>
       </div>
     );
   }

@@ -5,6 +5,8 @@ import Button from "material-ui/Button";
 import Grid from "material-ui/Grid";
 import Typography from "material-ui/Typography";
 import "../CSS/bootstrap.css";
+import HorizontalGridList from  "./GridList";
+
 
 /**
  * TODO:
@@ -16,15 +18,14 @@ import "../CSS/bootstrap.css";
 
 -  Make the heading as "Discover yourself"
  */
-
 const styles = {
   root: {
     display: "flex",
     flexDirection: "column",
     alignContent: "space-between",
     justifyContent: "space-between",
-    marginBottom: "12vh",
-    marginRight: "2vh"
+    marginBottom:"12vh",
+    marginRight:"2vh"
   },
   card: {
     display: "flex",
@@ -32,10 +33,10 @@ const styles = {
     alignContent: "space-between",
     justifyContent: "space-between",
     width: "55vh",
-    height: "70vh"
+    height:"50vh"
   },
 
-  makeitflex: {
+  makeitflex:{
     display: "flex",
     flexDirection: "column",
     alignContent: "space-between",
@@ -45,11 +46,11 @@ const styles = {
   title: {
     marginBottom: 16,
     fontSize: 28,
-    maxHeight: "5vh"
+    maxHeight:"5vh"
   },
   paragraph: {
-    fontSize: 20,
-    maxHeight: "5vh"
+    fontSize: "100%",
+    maxHeight:"5vh"
   },
   size: {
     padding: 20,
@@ -89,9 +90,7 @@ class Bookmarkedrepos extends Component {
   render() {
     return (
       <div className="container">
-        <Typography variant="headline" component="h1">
-          Bookmarked Projects
-        </Typography>
+      <Typography variant="display1" gutterBottom>Bookmarked Projects</Typography>
         <br />
         <Grid container spacing={12}>
           <SimpleCard
@@ -111,7 +110,8 @@ class Bookmarkedrepos extends Component {
           />
           
         </Grid>
-      </div>
+        <HorizontalGridList/>
+        </div>
     );
   }
 }

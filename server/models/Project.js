@@ -1,6 +1,6 @@
 const express=require("express");
 
-const RepoSchema=new express.Schema({
+const ProjectSchema=new express.Schema({
     name:{
         type:String,
         requried:true
@@ -18,9 +18,12 @@ const RepoSchema=new express.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:User,
         }
-    ]
+    ],
+    icon:{
+        type:String //For now let it be a string but later use cloudinary to take the file from the site itself
+    }
 });
 
 
 
- module.exports = mongoose.model('Repo', RepoSchema);
+ module.exports = mongoose.model('Project', RepoSchema);
