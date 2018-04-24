@@ -13,3 +13,8 @@
     flex-shrink: 0; */
     /* text-align: center; */
 }
+
+
+.searchBar{
+    font-size: 3vh;
+}

@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { SearchTerm } from "../actions/index";
-import Button from 'material-ui/Button';
+import Button from "material-ui/Button";
+import SearchBar from "material-ui-search-bar";
 
-class SearchBar extends Component {
+
+class Searchbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +16,7 @@ class SearchBar extends Component {
     this.handleLucky = this.handleLucky.bind(this);
   }
   handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     this.props.SearchTerm(this.state.terms);
     this.setState({ terms: "" });
     this.props.history.push("/projects");
@@ -26,12 +28,12 @@ class SearchBar extends Component {
   render() {
     const style = {
       marginTop: "4vh",
-      width:"35vh"
+      width: "35vh"
     };
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input
+          {/*<input
             name="terms"
             value={this.state.terms}
             type="text"
@@ -39,11 +41,44 @@ class SearchBar extends Component {
               this.setState({ [e.target.name]: e.target.value });
             }}
             style={{width:"90vh",height:"5vh",padding:"1vh",fontSize:"3vh",marginLeft:"2vh"}}
+          />*/}
+          <SearchBar
+            onChange={e => {
+              this.setState({ terms: e });
+            }}
+            onRequestSearch={e => this.handleSubmit(e)}
+            name="terms"
+            value={this.state.terms}
+            
+            style={{
+              margin: "0 auto",
+              maxWidth: 900,
+              height: "8vh"
+            }}
+            
           />
-          <br/>
-          <Button variant="raised" label="Search" type="submit" color="primary" style={{...style,marginLeft:"8vh"}} >Search</Button>
-          <Button variant="raised" label="Feeling Lucky?" onClick={this.handleLucky} type="submit" color="secondary" style={{...style,marginLeft:"4vh"}} >Feeling Lucky?</Button>
-      
+          <br />
+          <Button
+            variant="raised"
+            label="Search"
+            type="submit"
+            color="primary"
+            size="large"
+            style={{ ...style, marginLeft: "8vh" }}
+          >
+            Search
+          </Button>
+          <Button
+            variant="raised"
+            label="Feeling Lucky?"
+            onClick={this.handleLucky}
+            type="submit"
+            color="secondary"
+            size="large"
+            style={{ ...style, marginLeft: "4vh" }}
+          >
+            Feeling Lucky?
+          </Button>
         </form>
       </div>
     );
@@ -63,4 +98,6 @@ const MapDispatchToProps = dispatch => ({
   }
 });
 
-export default withRouter(connect(mapStateToProps, MapDispatchToProps)(SearchBar));
+export default withRouter(
+  connect(mapStateToProps, MapDispatchToProps)(Searchbar)
+);

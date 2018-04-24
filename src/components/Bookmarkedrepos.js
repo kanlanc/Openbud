@@ -23,8 +23,8 @@ const styles = {
     flexDirection: "column",
     alignContent: "space-between",
     justifyContent: "space-between",
-    marginBottom:"12vh",
-    marginRight:"2vh"
+    marginBottom: "12vh",
+    marginRight: "2vh"
   },
   card: {
     display: "flex",
@@ -32,10 +32,10 @@ const styles = {
     alignContent: "space-between",
     justifyContent: "space-between",
     width: "55vh",
-    height:"70vh"
+    height: "70vh"
   },
 
-  makeitflex:{
+  makeitflex: {
     display: "flex",
     flexDirection: "column",
     alignContent: "space-between",
@@ -45,11 +45,11 @@ const styles = {
   title: {
     marginBottom: 16,
     fontSize: 28,
-    maxHeight:"5vh"
+    maxHeight: "5vh"
   },
   paragraph: {
     fontSize: 20,
-    maxHeight:"5vh"
+    maxHeight: "5vh"
   },
   size: {
     padding: 20,
@@ -61,27 +61,23 @@ function SimpleCard(props) {
   return (
     <div className={props.classes.root}>
       <Grid item xs={12} sm={6} md={4}>
-        <Card className={props.classes.card} >
+        <Card className={props.classes.card}>
           <CardContent>
             <Typography
               variant="headline"
               component="h2"
               className={props.classes.title}
             >
-              {props.projectName
-                ? props.projectName
-                : "Loading..."}
+              {props.projectName ? props.projectName : "Loading..."}
             </Typography>
             <Typography component="p" className={props.classes.paragraph}>
-              {props.description
-                ? props.description
-                : "Please wait a moment"}
+              {props.description ? props.description : "Please wait a moment"}
             </Typography>
           </CardContent>
           <CardActions>
-          <Button variant="raised" size="large" color="primary" >
-          Learn More
-        </Button>
+            <Button variant="raised" size="large" color="primary">
+              Learn More
+            </Button>
           </CardActions>
         </Card>
       </Grid>
@@ -98,11 +94,21 @@ class Bookmarkedrepos extends Component {
         </Typography>
         <br />
         <Grid container spacing={12}>
-          <SimpleCard classes={this.props.classes} projectName="Material UI" description="This is the description for sample 1" />
-          <SimpleCard classes={this.props.classes} projectName="OpenBud" description="This is the description for sample 2"/>
-          <SimpleCard classes={this.props.classes} projectName="Project 3" description="This is the description for sample 3"/>
-          <SimpleCard classes={this.props.classes} projectName="Project 4" description="This is the description for sample 4"/>
-          <SimpleCard classes={this.props.classes} projectName="Project 5" description="This is the sample for the project 5  "/>
+          <SimpleCard
+            classes={this.props.classes}
+            projectName="Material UI"
+            description="This is the description for sample 1"
+          />
+          <SimpleCard
+            classes={this.props.classes}
+            projectName="OpenBud"
+            description="This is the description for sample 2"
+          />
+          <SimpleCard
+            classes={this.props.classes}
+            projectName="Project 3"
+            description="This is the description for sample 3"
+          />
           
         </Grid>
       </div>

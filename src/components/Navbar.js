@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { SearchTerm } from "../actions/index";
 import Button from 'material-ui/Button';
-
+import SearchBar from "material-ui-search-bar";
 import "../CSS/Navbar.css"
 
 class Navbar extends Component {
@@ -32,7 +32,7 @@ class Navbar extends Component {
         <div className="block" style={style}>
           <h3 className="space-left-right">OpenBud</h3>
           <form onSubmit={this.handleSubmit} style={{width:"50%"}}>
-            <input
+            {/*<input
               name="terms"
               value={this.state.terms}
               type="text"
@@ -45,7 +45,22 @@ class Navbar extends Component {
                 padding: "1vh",
                 fontSize: "2vh"
               }}
-            />
+            />*/}
+            <SearchBar
+            onChange={e => {
+              this.setState({ terms: e });
+            }}
+            onRequestSearch={e => this.handleSubmit(e)}
+            name="terms"
+            value={this.state.terms}
+            
+            style={{
+              margin: "0 auto",
+              maxWidth: 700,
+              height: "6vh"
+            }}
+            
+          />
           </form>
         </div>
       </div>
