@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { SearchTerm } from "../actions/index";
+import { SearchTerm } from "../../actions/index";
 import Button from 'material-ui/Button';
 import SearchBar from "material-ui-search-bar";
-import "../CSS/Navbar.css"
+import "../../CSS/Navbar.css"
 
 class Navbar extends Component {
   constructor(props) {
@@ -15,7 +15,6 @@ class Navbar extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(e) {
-    e.preventDefault();
     this.props.SearchTerm(this.state.terms);
     this.setState({ terms: "" });
     this.props.history.push("/projects");

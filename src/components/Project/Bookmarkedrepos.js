@@ -4,8 +4,9 @@ import Card, { CardActions, CardContent } from "material-ui/Card";
 import Button from "material-ui/Button";
 import Grid from "material-ui/Grid";
 import Typography from "material-ui/Typography";
-import "../CSS/bootstrap.css";
-import HorizontalGridList from  "./GridList";
+import "../../CSS/bootstrap.css";
+import HorizontalGridList from  "../Main/GridList";
+
 
 /**
  * TODO:
@@ -17,7 +18,6 @@ import HorizontalGridList from  "./GridList";
 
 -  Make the heading as "Discover yourself"
  */
-
 const styles = {
   root: {
     display: "flex",
@@ -62,27 +62,23 @@ function SimpleCard(props) {
   return (
     <div className={props.classes.root}>
       <Grid item xs={12} sm={6} md={4}>
-        <Card className={props.classes.card} >
+        <Card className={props.classes.card}>
           <CardContent>
             <Typography
               variant="headline"
               component="h2"
               className={props.classes.title}
             >
-              {props.projectName
-                ? props.projectName
-                : "Loading..."}
+              {props.projectName ? props.projectName : "Loading..."}
             </Typography>
             <Typography component="p" className={props.classes.paragraph}>
-              {props.description
-                ? props.description
-                : "Please wait a moment"}
+              {props.description ? props.description : "Please wait a moment"}
             </Typography>
           </CardContent>
           <CardActions>
-          <Button variant="raised" size="large" color="primary" >
-          Learn More
-        </Button>
+            <Button variant="raised" size="large" color="primary">
+              Learn More
+            </Button>
           </CardActions>
         </Card>
       </Grid>
@@ -93,19 +89,29 @@ function SimpleCard(props) {
 class Bookmarkedrepos extends Component {
   render() {
     return (
-      <div className="container" style={{margin:"5%"}}>
-        <Typography variant="display1" component="h2">
-          Recommended Projects
-        </Typography>
+      <div className="container">
+      <Typography variant="display1" gutterBottom>Bookmarked Projects</Typography>
         <br />
         <Grid container spacing={12}>
-          <SimpleCard classes={this.props.classes} projectName="Material UI" description="This is the description for sample 1" />
-          <SimpleCard classes={this.props.classes} projectName="OpenBud" description="This is the description for sample 2"/>
-          <SimpleCard classes={this.props.classes} projectName="React" description="This is the description for sample 3"/>
-
+          <SimpleCard
+            classes={this.props.classes}
+            projectName="Material UI"
+            description="This is the description for sample 1"
+          />
+          <SimpleCard
+            classes={this.props.classes}
+            projectName="OpenBud"
+            description="This is the description for sample 2"
+          />
+          <SimpleCard
+            classes={this.props.classes}
+            projectName="Project 3"
+            description="This is the description for sample 3"
+          />
+          
         </Grid>
         <HorizontalGridList/>
-      </div>
+        </div>
     );
   }
 }

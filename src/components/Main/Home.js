@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SearchBar from "./SeachBar";
-import "../App.css";
+import "../../App.css";
 
 
 

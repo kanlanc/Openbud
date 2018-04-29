@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { SearchTerm } from "../actions/index";
+import { SearchTerm } from "../../actions/index";
 import Button from "material-ui/Button";
 import SearchBar from "material-ui-search-bar";
 
@@ -53,7 +53,8 @@ class Searchbar extends Component {
             style={{
               margin: "0 auto",
               maxWidth: 900,
-              height: "8vh"
+              height: "8vh",
+              "font-size":"70px"
             }}
             
           />
