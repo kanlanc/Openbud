@@ -3,9 +3,4 @@ When an open source project starts, it is normally accompanied by a single perso
 
 
 
-Things to do:-
 
-1-Make the CSS animation for the seach bar
-2-make the page after search bar
-3-Integrate with the github api
-4-
