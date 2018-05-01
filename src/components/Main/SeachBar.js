@@ -5,7 +5,7 @@ import { SearchTerm } from "../../actions/index";
 import Button from "material-ui/Button";
 import SearchBar from "material-ui-search-bar";
 import { withStyles } from "material-ui/styles";
-import axios from "axios";
+// import axios from "axios";
 
 
 const styles = {
@@ -105,7 +105,6 @@ class Searchbar extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.term);
   return {
     interterms: state.term
   };

@@ -2,11 +2,16 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { SearchTerm } from "../../actions/index";
-import Button from 'material-ui/Button';
+// import Button from 'material-ui/Button';
 import SearchBar from "material-ui-search-bar";
 import "../../CSS/Navbar.css"
 
 class Navbar extends Component {
+  componentDidMount() {
+    console.log(this.props.interterms)
+    this.setState({terms:this.props.interterms})
+  }
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -16,8 +21,9 @@ class Navbar extends Component {
   }
   handleSubmit(e) {
     this.props.SearchTerm(this.state.terms);
-    this.setState({ terms: "" });
-    this.props.history.push("/projects");
+    this.setState({ terms: e });
+    // this.props.history.push("/projects");
+    console.log(this.props.interterms);
   }
 
   render() {
@@ -30,8 +36,8 @@ class Navbar extends Component {
       <div>
         <div className="block" style={style}>
           <h3 className="space-left-right">OpenBud</h3>
-          <form onSubmit={this.handleSubmit} style={{width:"50%"}}>
-            {/*<input
+         {/* <form onSubmit={this.handleSubmit} style={{width:"50%"}}>
+            <input
               name="terms"
               value={this.state.terms}
               type="text"
@@ -45,6 +51,7 @@ class Navbar extends Component {
                 fontSize: "2vh"
               }}
             />*/}
+            <div style={{width:"50%"}}>
             <SearchBar
             onChange={e => {
               this.setState({ terms: e });
@@ -56,11 +63,12 @@ class Navbar extends Component {
             style={{
               margin: "0 auto",
               maxWidth: 700,
-              height: "6vh"
+              height: "7vh"
             }}
             
           />
-          </form>
+          </div>
+          {/*</form>*/}
         </div>
       </div>
     );
@@ -68,9 +76,11 @@ class Navbar extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log(state.term.term);
     console.log(state.term);
+    console.log(state);
     return {
-      interterms: state.term
+      interterms: state.term.term
     };
   }
   

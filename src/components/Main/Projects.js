@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
+import { connect } from "react-redux";
 import { withStyles } from "material-ui/styles";
 import Card, { CardActions, CardContent } from "material-ui/Card";
 import Button from "material-ui/Button";
 import Grid from "material-ui/Grid";
 import Typography from "material-ui/Typography";
 import "../../CSS/bootstrap.css";
+import { withRouter } from "react-router-dom";
 
 // TODO:
 // - FIX A USER DESIGN FOR THIS PAGE WHICH IS EITHER UDEMY'S DESIGN OR MAKE IT GITHUB DESIGN
@@ -142,4 +144,14 @@ class Projects extends Component {
   }
 }
 
-export default withStyles(styles)(Projects);
+function mapStateToProps(state) {
+  return {
+    interterms: state.term
+  };
+}
+
+const MapDispatchToProps = dispatch => ({});
+
+export default withRouter(
+  withStyles(styles)(connect(mapStateToProps, MapDispatchToProps)(Projects))
+);
