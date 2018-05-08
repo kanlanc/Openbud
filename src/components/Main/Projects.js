@@ -101,7 +101,7 @@ class Projects extends Component {
             These projects match the description given...
           </Typography>
           <br />
-          <Grid container spacing={12}>
+          <Grid container spacing={16}>
             <SimpleCard
               classes={this.props.classes}
               projectName="Material UI"

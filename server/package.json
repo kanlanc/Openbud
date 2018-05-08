@@ -1,23 +1,22 @@
 {
-  "name": "openbud-backend",
-  "version": "1.0.0",
-  "description": "backend for openbud",
-  "main": "app.js",
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.18.2",
-    "debug": "~2.6.9",
-    "dotenv": "^5.0.1",
-    "express": "~4.15.5",
-    "jsonwebtoken": "^8.2.0",
-    "mongoose": "^5.0.9",
-    "morgan": "~1.9.0",
-    "path": "^0.12.7",
-    "serve-favicon": "~2.4.5"
-  },
-  "author": "Vikranth Kanumuru",
-  "license": "ISC"
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "jsonwebtoken": "^7.4.3",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.9",
+    "morgan": "~1.8.1",
+    "nodemailer": "^4.0.1",
+    "serve-favicon": "~2.4.2"
+  }
 }

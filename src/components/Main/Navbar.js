@@ -5,10 +5,20 @@ import { SearchTerm } from "../../actions/index";
 // import Button from 'material-ui/Button';
 import SearchBar from "material-ui-search-bar";
 import "../../CSS/Navbar.css"
+import { withStyles } from "material-ui/styles";
+
+const styles = {
+  
+  margin: "0 auto",
+  maxWidth: 900,
+  height: "8vh",
+  width:"75%",
+  fontsSize:{fontSize:"20px",width:"75%"}
+
+};
 
 class Navbar extends Component {
   componentDidMount() {
-    console.log(this.props.interterms)
     this.setState({terms:this.props.interterms})
   }
   
@@ -23,7 +33,6 @@ class Navbar extends Component {
     this.props.SearchTerm(this.state.terms);
     this.setState({ terms: e });
     // this.props.history.push("/projects");
-    console.log(this.props.interterms);
   }
 
   render() {
@@ -35,7 +44,7 @@ class Navbar extends Component {
     return (
       <div>
         <div className="block" style={style}>
-          <h3 className="space-left-right">OpenBud</h3>
+          <h2 className="space-left-right" >OpenBud</h2>
          {/* <form onSubmit={this.handleSubmit} style={{width:"50%"}}>
             <input
               name="terms"
@@ -59,7 +68,7 @@ class Navbar extends Component {
             onRequestSearch={e => this.handleSubmit(e)}
             name="terms"
             value={this.state.terms}
-            
+            inputProps={{ className: this.props.classes.fontsSize }}  
             style={{
               margin: "0 auto",
               maxWidth: 700,
@@ -91,4 +100,6 @@ function mapStateToProps(state) {
   });
 
 
-export default withRouter(connect(mapStateToProps, MapDispatchToProps)(Navbar));
+export default withRouter(
+  withStyles(styles)(connect(mapStateToProps, MapDispatchToProps)(Navbar))
+);
