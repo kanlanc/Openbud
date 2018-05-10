@@ -50,8 +50,8 @@ router.get("/:userid/projects", function(req, res, next) {
 });
 
 // This is to find a project and send back related information
-router.post("/findproject", function(req, res, next) {
-    var id=req.body.userid;
+router.get("/findproject/:projectid", function(req, res, next) {
+    var id=req.params.projectid;
     Project.findById(id).populate("owner").populate("contributors").exec((err,project)=>{
         if(err)
         {

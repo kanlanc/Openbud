@@ -12,8 +12,9 @@ const ProjectSchema = new mongoose.Schema({
     requried: true
   },
   owner: {
+    required: true,
     type: mongoose.Schema.Types.ObjectId,
-      ref: User
+    ref: User
   },
   description: {
     type: String,
