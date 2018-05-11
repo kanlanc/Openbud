@@ -5,6 +5,7 @@ import MenuItem from "material-ui/Menu/MenuItem";
 import TextField from "material-ui/TextField";
 import Grid from "material-ui/Grid";
 import Button from "material-ui/Button";
+import { RegisterAction } from "../../actions/index";
 
 const styles = theme => ({
   root: {
@@ -33,7 +34,7 @@ const styles = theme => ({
   }
 });
 
-export class Login extends Component {
+export class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,6 +54,8 @@ export class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.RegisterAction(this.state.username,this.state.password,this.state.email,this.state.name);
+    this.props.history.push("/projects");
   }
 
   render() {
@@ -61,7 +64,7 @@ export class Login extends Component {
       <div className={classes.root}>
         <Grid container spacing={24}>
           <Grid item xs={12}>
-            <h2 className="">LOGIN</h2>
+            <h2 className="">Register</h2>
           </Grid>
 
           <form
@@ -74,7 +77,7 @@ export class Login extends Component {
               <TextField
                 required
                 id="name"
-                label="name"
+                label="Name"
                 inputProps={{ className: this.props.classes.fontsSize }}
                 InputLabelProps={{ className: this.props.classes.fontsSize }}
                 style={{ width: "75%", margin: "50 auto" }}
@@ -89,7 +92,7 @@ export class Login extends Component {
               <TextField
                 required
                 id="username"
-                label="username"
+                label="Username"
                 inputProps={{ className: this.props.classes.fontsSize }}
                 InputLabelProps={{ className: this.props.classes.fontsSize }}
                 style={{ width: "75%", margin: "50 auto" }}
@@ -104,7 +107,7 @@ export class Login extends Component {
               <TextField
                 required
                 id="password"
-                label="password"
+                label="Password"
                 type="password"
                 inputProps={{ className: this.props.classes.fontsSize }}
                 InputLabelProps={{ className: this.props.classes.fontsSize }}
@@ -120,7 +123,7 @@ export class Login extends Component {
               <TextField
                 required
                 id="email"
-                label="email"
+                label="Email"
                 inputProps={{ className: this.props.classes.fontsSize }}
                 InputLabelProps={{ className: this.props.classes.fontsSize }}
                 style={{ width: "75%", margin: "50 auto" }}
@@ -130,8 +133,8 @@ export class Login extends Component {
                 margin="normal"
               />
             </Grid>
-            <Button className={classes.button} variant="raised" color="primary">
-              <h2 style={{padding:"2"}}>Send</h2>
+            <Button type="submit" className={classes.button} variant="raised" color="primary">
+              Send
             </Button>
           </form>
         </Grid>
@@ -142,8 +145,13 @@ export class Login extends Component {
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = dispatch => ({
+  RegisterAction: (username,password,email,name) => {
+    dispatch(RegisterAction(username,password,email,name));
+  }
+});
+
 
 export default withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(Login)
+  connect(mapStateToProps, mapDispatchToProps)(Register)
 );

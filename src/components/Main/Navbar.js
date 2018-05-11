@@ -85,9 +85,6 @@ class Navbar extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state.term.term);
-    console.log(state.term);
-    console.log(state);
     return {
       interterms: state.term.term
     };

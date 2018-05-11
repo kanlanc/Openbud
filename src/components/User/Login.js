@@ -5,6 +5,7 @@ import MenuItem from "material-ui/Menu/MenuItem";
 import TextField from "material-ui/TextField";
 import Grid from "material-ui/Grid";
 import Button from "material-ui/Button";
+import { LoginAction } from "../../actions/index";
 
 const styles = theme => ({
   root: {
@@ -51,11 +52,11 @@ export class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-        
+    this.props.LoginAction(this.state.username, this.state.password);
   }
 
   render() {
-    let {classes}=this.props;
+    let { classes } = this.props;
     return (
       <div className={classes.root}>
         <Grid container spacing={24}>
@@ -99,8 +100,13 @@ export class Login extends Component {
               />
             </Grid>
 
-            <Button className={classes.button} variant="raised" color="primary">
-              <h2 style={{padding:"2"}}>Send</h2>
+            <Button
+              type="submit"
+              className={classes.button}
+              variant="raised"
+              color="primary"
+            >
+              Send
             </Button>
           </form>
         </Grid>
@@ -111,7 +117,9 @@ export class Login extends Component {
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  LoginAction
+};
 
 export default withStyles(styles)(
   connect(mapStateToProps, mapDispatchToProps)(Login)

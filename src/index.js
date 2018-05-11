@@ -1,22 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import {Provider} from "react-redux";
-import { createStore } from 'redux';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import registerServiceWorker from "./registerServiceWorker";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import index from "./reducers";
-import injectTapEventPlugin from 'react-tap-event-plugin';  
-import { composeWithDevTools } from 'redux-devtools-extension';
-import 'font-awesome/css/font-awesome.min.css';
+import injectTapEventPlugin from "react-tap-event-plugin";
+import { composeWithDevTools } from "redux-devtools-extension";
+import "font-awesome/css/font-awesome.min.css";
+import thunk from 'redux-thunk';
 
 injectTapEventPlugin();
-var store=createStore(index, composeWithDevTools(
-    
-    // other store enhancers if any
-  ));
+const store = createStore(index,
+    compose(applyMiddleware(thunk))
+);
 ReactDOM.render(
-    <Provider store={store}>
+  <Provider store={store}>
     <App />
-    </Provider>, document.getElementById('root'));
+  </Provider>,
+  document.getElementById("root")
+);
 registerServiceWorker();

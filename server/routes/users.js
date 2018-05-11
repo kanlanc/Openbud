@@ -38,6 +38,8 @@ router.post("/register", function(req, res, next) {
       res.status(200).json({
         message: "User creation was successful, enjoy your token",
         success: true,
+        username:user.username,
+        name:user.name,
         token
       });
     })
