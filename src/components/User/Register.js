@@ -143,7 +143,11 @@ export class Register extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => {
+  
+  return {}
+
+};
 
 const mapDispatchToProps = dispatch => ({
   RegisterAction: (username,password,email,name) => {

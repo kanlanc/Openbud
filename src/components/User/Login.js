@@ -53,6 +53,7 @@ export class Login extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.LoginAction(this.state.username, this.state.password);
+    this.props.history.push("/projects")
   }
 
   render() {
@@ -117,9 +118,11 @@ export class Login extends Component {
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = {
-  LoginAction
-};
+const mapDispatchToProps = (dispatch)=>({
+  LoginAction: (username,password) => {
+    dispatch(LoginAction(username,password));
+  }
+});
 
 export default withStyles(styles)(
   connect(mapStateToProps, mapDispatchToProps)(Login)

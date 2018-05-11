@@ -1,4 +1,4 @@
-import { Login, Register } from "../actions";
+import * as ActionType from "../constants/ActionTypes";
 
 /**
  * @param {Object} state - Default application state
@@ -7,32 +7,26 @@ import { Login, Register } from "../actions";
  */
 export default (state = [], action) => {
   switch (action.type) {
-    case "Login":
-      let username = setusernameandtoken(action);
+    case ActionType.LOGIN_SUCCESS:
+      localStorage.setItem("token", action.payload.token);
       return {
         ...state,
-        username: username,
+        username: action.payload.username,
         isAuthenticated: true
       };
-
-    case "Register":
-      username = setusernameandtoken(action);
+      break;
+    case ActionType.LOGIN_FAILURE:
       return {
         ...state,
-        username: username,
-        isAuthenticated: true
+        ...action.payload,
+        isAuthenticated: false
+      };
+    case ActionType.SHOW_MESSAGE:
+      return {
+        ...state,
+        ...action.payload
       };
     default:
       return state;
   }
 };
-function setusernameandtoken(action) {
-  let username = "";
-  const resolvedRequest = action.payload;
-  resolvedRequest.then(resp => {
-    // Set the token in the localstorage
-    username = resp.data.username;
-    localStorage.setItem("token", resp.data.token);
-  });
-  return username;
-}

@@ -6,8 +6,8 @@ import AuthenticationReducer  from './AuthenticationReducer';
 
 const index = combineReducers({
     term:SearchTerm,
-    isAuthenticated:false,
-    currentUser: AuthenticationReducer,
+    user:AuthenticationReducer,
+    
 });
 
 

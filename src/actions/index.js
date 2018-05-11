@@ -1,4 +1,4 @@
-import * as types from "../constants/ActionTypes";
+import * as ActionType from "../constants/ActionTypes";
 import axios from "axios";
 import register from "./../registerServiceWorker";
 
@@ -9,44 +9,73 @@ function parseJwt(token) {
   return JSON.parse(window.atob(base64));
 }
 
+
+/**
+ * The search bar terms typed 
+ * @param Search terms 
+ */
 export const SearchTerm = term => {
   return {
-    type: types.SearchTerm,
+    type: ActionType.SearchTerm,
     term
   };
 };
-export const LoginAction = (username, password) => {
-  // TODO: Send a request to the backend for the token
+
+
+/**
+ * 
+ * User Authentication
+ */
+export const LoginAction = (username, password) => dispatch => {
   const request = axios.post("/api/users/login", {
     username,
     password
-  });
-  // .then(function(response) {
-  //   // TODO: if response.data.success is true
-  //   console.log(response);
-  return {
-    type: types.Register,
-    // username
-    payload: request
-  };
-  // })
-  // .catch(function(error) {
-  //   // TODO: if response.data.success is false
-  //   console.log(error);
-  // });
+  }).then(
+    response => {
+      dispatch(loginSuccess({username:response.data.username,token:response.data.token}));
+      setTimeout(() => {
+        dispatch(showMessage(response.data.message));
+      }, 2000);
+    },
+    err => {
+      dispatch(loginFailure(err));
+    }
+  );
 };
-export const RegisterAction = (username, password, email, name) => {
-  // TODO: Send a request to the backend for the token
-  const request = axios.post("/api/users/register", {
+export const RegisterAction = (username, password, email, name)=> dispatch => {
+  axios.post("/api/users/register", {
     username,
     password,
     email,
     name
-  });
-
-  // TODO: if response.data.success is true
-  return {
-    type: types.Register,
-    payload: request
-  };
+  }).then(
+    response => {
+      dispatch(loginSuccess({username:response.data.username,token:response.data.token}));
+      setTimeout(() => {
+        dispatch(showMessage(response.data.message));
+      }, 2000);
+    },
+    err => {
+      dispatch(loginFailure(err));
+    }
+  );  
 };
+
+export const loginSuccess = response => ({
+  type: ActionType.LOGIN_SUCCESS,
+  payload: response
+});
+export const loginFailure = err => ({
+  type: ActionType.LOGIN_FAILURE,
+  payload: err,
+  error: true
+});
+export const showMessage = msg => ({
+  type: ActionType.SHOW_MESSAGE,
+  payload: msg
+});
+
+
+/**
+ * 
+ */
