@@ -1,7 +1,6 @@
 {
   "name": "openbud",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@material-ui/icons": "^1.0.0-beta.43",
     "axios": "^0.18.0",
@@ -21,7 +20,6 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },
-  "proxy": "http://localhost:8000/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
