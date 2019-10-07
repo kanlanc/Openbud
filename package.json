@@ -1,42 +1,42 @@
 {
-  "name": "openbud",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/icons": "^1.0.0-beta.43",
-    "axios": "^0.18.0",
-    "bcrypt": "^2.0.1",
-    "brcypt": "^1.0.1",
-    "font-awesome": "^4.7.0",
-    "jsonwebtoken": "^8.2.1",
-    "material-ui": "^1.0.0-beta.41",
-    "material-ui-search-bar": "^1.0.0-beta.4",
-    "mongoose": "^5.0.17",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "react-tap-event-plugin": "^3.0.2",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
-  },
-  "proxy": "http://localhost:8000/",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
-  },
-  "devDependencies": {
-    "redux-devtools-extension": "^2.13.2",
-    "@storybook/react": "^3.4.3",
-    "@storybook/addon-actions": "^3.4.3",
-    "@storybook/addon-links": "^3.4.3",
-    "@storybook/addons": "^3.4.3",
-    "babel-core": "^6.26.3",
-    "babel-runtime": "^6.26.0"
-  }
-}
+	  "name": "openbud",
+	  "version": "0.1.1",
+	  "private": true,
+	  "dependencies": {
+	    "@material-ui/icons": "^1.0.0-beta.43",
+	    "axios": "^0.18.0",
+	    "bcrypt": "^2.0.1",
+	    "brcypt": "^1.0.1",
+	    "font-awesome": "^4.7.0",
+	    "jsonwebtoken": "^8.2.1",
+	    "material-ui": "^1.0.0-beta.41",
+	    "material-ui-search-bar": "^1.0.0-beta.4",
+	    "mongoose": "^5.0.17",
+	    "react": "^16.2.0",
+	    "react-dom": "^16.2.0",
+	    "react-redux": "^5.0.7",
+	    "react-router-dom": "^4.2.2",
+	    "react-scripts": "1.1.1",
+	    "react-tap-event-plugin": "^3.0.2",
+	    "redux": "^3.7.2",
+	    "redux-thunk": "^2.2.0"
+	  },
+	  "proxy": "http://localhost:8000/",
+	  "scripts": {
+	    "start": "react-scripts start",
+	    "build": "react-scripts build",
+	    "test": "react-scripts test --env=jsdom",
+	    "eject": "react-scripts eject",
+	    "storybook": "start-storybook -p 9009 -s public",
+	    "build-storybook": "build-storybook -s public"
+	  },
+	  "devDependencies": {
+	    "redux-devtools-extension": "^2.13.2",
+	    "@storybook/react": "^3.4.3",
+	    "@storybook/addon-actions": "^3.4.3",
+	    "@storybook/addon-links": "^3.4.3",
+	    "@storybook/addons": "^3.4.3",
+	    "babel-core": "^6.26.3",
+	    "babel-runtime": "^6.26.0"
+	  }
+	}
