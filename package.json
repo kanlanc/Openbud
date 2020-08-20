@@ -5,7 +5,7 @@
 	  "dependencies": {
 	    "@material-ui/icons": "^1.0.0-beta.43",
 	    "axios": "^0.18.0",
-	    "bcrypt": "^2.0.1",
+	    "bcrypt": "^5.0.0",
 	    "brcypt": "^1.0.1",
 	    "font-awesome": "^4.7.0",
 	    "jsonwebtoken": "^8.2.1",
