@@ -16,7 +16,7 @@
 	    "react-dom": "^16.2.0",
 	    "react-redux": "^5.0.7",
 	    "react-router-dom": "^4.2.2",
-	    "react-scripts": "1.1.1",
+	    "react-scripts": "5.0.1",
 	    "react-tap-event-plugin": "^3.0.2",
 	    "redux": "^3.7.2",
 	    "redux-thunk": "^2.2.0"
@@ -32,7 +32,7 @@
 	  },
 	  "devDependencies": {
 	    "redux-devtools-extension": "^2.13.2",
-	    "@storybook/react": "^3.4.3",
+	    "@storybook/react": "^6.5.13",
 	    "@storybook/addon-actions": "^3.4.3",
 	    "@storybook/addon-links": "^3.4.3",
 	    "@storybook/addons": "^3.4.3",
